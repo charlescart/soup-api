@@ -3,10 +3,16 @@ import request from 'supertest'
 
 describe('HomeController', () => {
   describe('routes', () => {
-    it('GET /api', async () => {
+    it('GET /api', done => {
+
       request(app).get('/api')
-        .then((res) => {
-          expect(res.status).toBe(200);
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+          if (err) throw err;
+          expect(res.body.message).toMatch(/running/);
+          done();
         });
     });
   });
