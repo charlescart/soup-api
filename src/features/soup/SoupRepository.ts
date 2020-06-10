@@ -24,7 +24,7 @@ export default class SoupRepository {
     return summary;
   }
 
-  private static LookUpOneLetterWords(letter: string, summary: summaryDto): summaryDto {
+  static LookUpOneLetterWords(letter: string, summary: summaryDto): summaryDto {
     const wordsSizeOne: string[] = Object.keys(summary)
       .filter((word) => word.length === 1);
 
@@ -81,7 +81,7 @@ export default class SoupRepository {
     return summary;
   }
 
-  private static CreateSummary(words: string[]): summaryDto {
+  static CreateSummary(words: string[]): summaryDto {
     const summary: summaryDto = {};
 
     for (let i = 0; i < words.length; i += 1) {
