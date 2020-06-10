@@ -18,6 +18,7 @@ export default class SoupRepository {
         this.LookUpOneLetterWords(letter, summary);
         this.LookToTheRight(columnIndex, numberColumns, summary, row);
         this.LookAtDiagonal(rowIndex, columnIndex, summary, soup);
+        this.LookAtDown(soup, rowIndex, columnIndex, summary);
       });
     });
 
@@ -69,14 +70,28 @@ export default class SoupRepository {
       break;
     }
 
-    if (phraseDiagonal.length === 0) return summary;
+    phraseDiagonal = phraseDiagonal.trim();
 
-    const words: string[] = Object.keys(summary)
-      .filter((word) => word.length > 1 && word.length <= phraseDiagonal.length);
+    if (phraseDiagonal.length > 1) {
+      this.SearchPhraseMatch(phraseDiagonal, summary);
+    }
 
-    words.forEach((word) => {
-      if (word === phraseDiagonal.substr(0, word.length)) summary[word] += 1;
-    });
+    return summary;
+  }
+
+  static LookAtDown(soup: string[][], row: number, column: number, summary: summaryDto): summaryDto {
+    let phrase = '';
+
+    for (let i = row; i < soup.length; i += 1) {
+      phrase += soup[i][column].toUpperCase();
+      if (soup[i + 1] === undefined || (soup[i + 1].length - 1) < column) break;
+    }
+
+    phrase = phrase.trim();
+
+    if (phrase.length > 1) {
+      this.SearchPhraseMatch(phrase, summary);
+    }
 
     return summary;
   }
@@ -88,6 +103,17 @@ export default class SoupRepository {
       const word: string = words[i];
       if (word.length > 0) summary[word.toUpperCase()] = 0;
     }
+
+    return summary;
+  }
+
+  static SearchPhraseMatch(phrase: string, summary: summaryDto): summaryDto {
+    const words: string[] = Object.keys(summary)
+      .filter((word) => word.length > 1 && word.length <= phrase.length);
+
+    words.forEach((word) => {
+      if (word === phrase.substr(0, word.length)) summary[word] += 1;
+    });
 
     return summary;
   }
