@@ -4,12 +4,12 @@ exports[`SoupController Sopa de letras irregular y multiples palabras a buscar P
 Object {
   "AWDS": 0,
   "E4": 1,
-  "EX": 3,
+  "EX": 4,
   "I": 3,
-  "IX": 3,
+  "IX": 4,
   "IXE": 0,
   "O": 1,
-  "OI": 2,
-  "OIE": 2,
+  "OI": 3,
+  "OIE": 3,
 }
 `;
