@@ -1,16 +1,6 @@
-/* eslint-disable no-console */
-import 'reflect-metadata';
-import { useExpressServer } from 'routing-controllers';
-import express from 'express';
+import app from './server';
 
-const app = express();
-const port = process.env.PORT || 3000;
-
-useExpressServer(app, {
-  routePrefix: '/api',
-  cors: true,
-  controllers: [`${__dirname}/features/**/*Controller.js`],
-});
+const port = process.env.PORT || 3013;
 
 app.listen(port, () => {
   console.log(`Run in the port ${port}`);
