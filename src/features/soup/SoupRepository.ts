@@ -9,13 +9,10 @@ export default class SoupRepository {
   static Soup({ soup, searchWords }: soupDto): summaryDto {
     const summary: summaryDto = this.CreateSummary(searchWords);
 
-    const numberRows: number = soup.length - 1;
     soup.forEach((row: string[], rowIndex: number) => {
       const numberColumns: number = row.length - 1;
       row.forEach((letter: string, columnIndex: number) => {
-        letter = letter.toUpperCase();
-
-        this.LookUpOneLetterWords(letter, summary);
+        this.LookUpOneLetterWords(letter.toUpperCase(), summary);
         this.LookToTheRight(columnIndex, numberColumns, summary, row);
         this.LookAtDiagonal(rowIndex, columnIndex, summary, soup);
         this.LookAtDown(soup, rowIndex, columnIndex, summary);
