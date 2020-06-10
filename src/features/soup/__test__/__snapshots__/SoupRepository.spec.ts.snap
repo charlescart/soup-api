@@ -74,3 +74,22 @@ Object {
   "X": 3,
 }
 `;
+
+exports[`SoupRepository SearchPhraseMatch 1`] = `
+Object {
+  "4": 0,
+  "E4": 0,
+  "E5": 0,
+  "EE": 3,
+  "EX": 1,
+  "II": 1,
+  "IIX": 1,
+  "IIXX": 1,
+  "IX": 1,
+  "OI": 1,
+  "OIE": 1,
+  "OIEEE": 1,
+  "PALABRASUPERGRANDE": 0,
+  "XX": 1,
+}
+`;

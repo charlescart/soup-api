@@ -96,5 +96,15 @@ describe('SoupRepository', () => {
     });
 
     expect(summary).toMatchSnapshot();
-  })
+  });
+
+  it('SearchPhraseMatch', () => {
+    const phrases: string[] = ["OIEEE", "IIXX", "EXEE", "IEEE", "IXX", "XEE", "EEE", "XX", "EE", "EE"];
+    const words: string[] = ["palabraSuperGrande", "oie", "OI", "oieee", "IIXX", "ii", "IiX", "iX", "E4", "Ex", "E5", "4", "EE", "xx"];
+    const summary: Summary = SoupRepository.CreateSummary(words);
+
+    phrases.forEach(phrase => SoupRepository.SearchPhraseMatch(phrase, summary));
+
+    expect(summary).toMatchSnapshot();
+  });
 });
