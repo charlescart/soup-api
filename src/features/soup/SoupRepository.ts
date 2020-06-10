@@ -36,16 +36,16 @@ export default class SoupRepository {
     return summary;
   }
 
-  private static LookToTheRight(columnIndex: number, columns: number, summary: summaryDto, row: string[]): summaryDto {
+  static LookToTheRight(columnIndex: number, columns: number, summary: summaryDto, row: string[]): summaryDto {
     const spaceToTheRight: number = columns - columnIndex;
     const words: string[] = Object.keys(summary)
       .filter((word) => (word.length - 1) >= 1 && (word.length - 1) <= spaceToTheRight);
 
     for (let i = 0; i < words.length; i += 1) {
       const word: string = words[i];
-      const sizeWord: number = word.length;
+      const limit: number = (columnIndex + spaceToTheRight);
       const phrase: string = row
-        .filter((item, index) => index >= columnIndex && index <= sizeWord)
+        .filter((item, index) => index >= columnIndex && index <= limit)
         .join('')
         .toUpperCase();
 
