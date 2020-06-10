@@ -5,6 +5,6 @@ import { Get, JsonController } from 'routing-controllers';
 export default class AuthController {
   @Get('/')
   home(): string {
-    return 'Api is running...';
+    return `Api is running in ${process.env.PORT}`;
   }
 }

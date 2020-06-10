@@ -1,11 +1,13 @@
+import app from '../../../server';
 import request from 'supertest'
 
 describe('HomeController', () => {
   describe('routes', () => {
-
-    it('get home', () => {
-      expect(true).toBeTruthy();
+    it('GET /api', async () => {
+      request(app).get('/api')
+        .then((res) => {
+          expect(res.status).toBe(200);
+        });
     });
-
   });
 });
