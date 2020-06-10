@@ -79,6 +79,24 @@ Object {
 }
 `;
 
+exports[`SoupRepository LookAtTopLeftDiagonal 1`] = `
+Object {
+  "2": 0,
+  "23424": 0,
+  "4E": 1,
+  "5E": 1,
+  "5EIO": 1,
+  "AWS": 0,
+  "EI": 1,
+  "EIO": 1,
+  "EX": 1,
+  "EXI": 1,
+  "IO": 1,
+  "XE": 1,
+  "XI": 2,
+}
+`;
+
 exports[`SoupRepository LookToTheRight 1`] = `
 Object {
   "EX": 2,

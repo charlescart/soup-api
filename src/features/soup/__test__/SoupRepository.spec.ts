@@ -148,4 +148,25 @@ describe('SoupRepository', () => {
 
     expect(summary).toMatchSnapshot();
   });
+
+  it('LookAtTopLeftDiagonal', () => {
+    const words: string[] = ["aws", "io", "xi", "4e", "EIO", "EI", "5EIO", "XE", "EXI", "ex", "5E", "", "2", "23424"];
+    let summary: Summary = SoupRepository.CreateSummary(words);
+    const soup: string[][] = [
+      ["o", "I", "E"],
+      ["I", "i", "X", "4"],
+      ["E", "X", "E"],
+      ["E", "X", "E", "5"],
+      ["E"],
+      [" "]
+    ];
+
+    soup.forEach((row: string[], rowIndex: number) => {
+      row.forEach((letter: string, columnIndex: number) => {
+        SoupRepository.LookAtTopLeftDiagonal(soup, rowIndex, columnIndex, summary);
+      });
+    });
+
+    expect(summary).toMatchSnapshot();
+  });
 });
