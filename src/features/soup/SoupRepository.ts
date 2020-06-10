@@ -19,6 +19,8 @@ export default class SoupRepository {
         this.LookToTheRight(columnIndex, numberColumns, summary, row);
         this.LookAtDiagonal(rowIndex, columnIndex, summary, soup);
         this.LookAtDown(soup, rowIndex, columnIndex, summary);
+        this.LookAtDiagonalLeft(rowIndex, columnIndex, summary, soup);
+        this.LookAtLeft(soup, rowIndex, columnIndex, summary);
       });
     });
 
@@ -92,6 +94,38 @@ export default class SoupRepository {
     if (phrase.length > 1) {
       this.SearchPhraseMatch(phrase, summary);
     }
+
+    return summary;
+  }
+
+  static LookAtDiagonalLeft(row: number, column: number, summary: summaryDto, soup: string[][]): summaryDto {
+    let phrase = '';
+
+    if (column > 0) {
+      let i = row;
+      for (let j = column; j >= 0; j -= 1) {
+        phrase += soup[i][j].toUpperCase();
+        i += 1;
+        if (soup[i] !== undefined && soup[i].length < j) break;
+      }
+
+      phrase = phrase.trim();
+      if (phrase.length > 1) this.SearchPhraseMatch(phrase, summary);
+    }
+
+    return summary;
+  }
+
+  static LookAtLeft(soup: string[][], row: number, column: number, summary: summaryDto): summaryDto {
+    let phrase = '';
+
+    for (let i = column; i >= 0; i -= 1) {
+      phrase += soup[row][i].toUpperCase();
+    }
+
+    phrase = phrase.trim();
+
+    if (phrase.length > 1) this.SearchPhraseMatch(phrase, summary);
 
     return summary;
   }

@@ -107,4 +107,26 @@ describe('SoupRepository', () => {
 
     expect(summary).toMatchSnapshot();
   });
+
+  it('LookAtDiagonalLeft', () => {
+    const words: string[] = ["palabraSuperGrande", "ii", "EIE", "EI", "Ei", "eie", "ie", "xx", "XXE", "4E", "4EX", "4exe", "xe", "exe"];
+    let summary: Summary = SoupRepository.CreateSummary(words);
+    const soup: string[][] = [
+      ["o", "I", "E"],
+      ["I", "i", "X", "4"],
+      ["E", "X", "E"],
+      ["E", "X", "E", "5"],
+      ["E"],
+      [" "]
+    ];
+
+    soup.forEach((row: string[], rowIndex: number) => {
+      row.forEach((letter: string, columnIndex: number) => {
+        letter = letter.toUpperCase();
+        SoupRepository.LookAtDiagonalLeft(rowIndex, columnIndex, summary, soup);
+      });
+    });
+
+    expect(summary).toMatchSnapshot();
+  });
 });

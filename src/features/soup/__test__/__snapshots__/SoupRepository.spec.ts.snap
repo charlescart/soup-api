@@ -25,6 +25,23 @@ Object {
 }
 `;
 
+exports[`SoupRepository LookAtDiagonalLeft 1`] = `
+Object {
+  "4E": 1,
+  "4EX": 1,
+  "4EXE": 1,
+  "EI": 1,
+  "EIE": 1,
+  "EXE": 1,
+  "IE": 1,
+  "II": 1,
+  "PALABRASUPERGRANDE": 0,
+  "XE": 2,
+  "XX": 1,
+  "XXE": 1,
+}
+`;
+
 exports[`SoupRepository LookAtDown 1`] = `
 Object {
   "4": 0,
