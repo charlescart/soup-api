@@ -4,8 +4,8 @@ import request from 'supertest'
 describe('SoupController', () => {
   describe('Sopa de letras irregular y multiples palabras a buscar', () => {
     it('POST /api/soup', done => {
-      const searchWords = ["oiE", "ixE", "Ix", "i", "O", "awds", "e4", "", "oi", "eX"];
-      const soup = [
+      const searchWords: string[] = ["oiE", "ixE", "Ix", "i", "O", "awds", "e4", "", "oi", "eX"];
+      const soup: string[][] = [
         ["o", "I", "E"],
         ["I", "i", "X", "4"],
         ["E", "X", "E"],
@@ -21,9 +21,11 @@ describe('SoupController', () => {
         .expect(200)
         .end((err, res) => {
           if (err) throw err;
-          // TODO: hacer un snapshot
+          expect(res.body).toMatchSnapshot();
           done();
         });
     });
   });
+
+  //TODO: agregar los casos de pruebas del documento
 });

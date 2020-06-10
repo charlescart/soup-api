@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SoupRepository CreateSummary 1`] = `
+Object {
+  "AWDS": 0,
+  "E4": 0,
+  "EX": 0,
+  "I": 0,
+  "IX": 0,
+  "IXE": 0,
+  "O": 0,
+  "OI": 0,
+  "OIE": 0,
+}
+`;
+
+exports[`SoupRepository LookUpOneLetterWords 1`] = `
+Object {
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 1,
+  "E": 5,
+  "F": 0,
+  "I": 3,
+  "K": 0,
+  "O": 1,
+  "P": 0,
+  "X": 3,
+}
+`;

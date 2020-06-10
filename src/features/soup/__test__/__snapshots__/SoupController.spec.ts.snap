@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SoupController Sopa de letras irregular y multiples palabras a buscar POST /api/soup 1`] = `
+Object {
+  "AWDS": 0,
+  "E4": 1,
+  "EX": 3,
+  "I": 3,
+  "IX": 3,
+  "IXE": 0,
+  "O": 1,
+  "OI": 2,
+  "OIE": 2,
+}
+`;
