@@ -13,3 +13,33 @@ Object {
   "OIE": 3,
 }
 `;
+
+exports[`SoupController matriz 1x1 palabra a buscar ["OIE"] POST /api/soup 1`] = `
+Object {
+  "OIE": 0,
+}
+`;
+
+exports[`SoupController matriz 1x10 palabra a buscar ["OIE"] POST /api/soup 1`] = `
+Object {
+  "OIE": 4,
+}
+`;
+
+exports[`SoupController matriz 3x3 palabra a buscar ["OIE"] POST /api/soup 1`] = `
+Object {
+  "OIE": 3,
+}
+`;
+
+exports[`SoupController matriz 5x5 palabra a buscar ["OIE"] POST /api/soup 1`] = `
+Object {
+  "OIE": 8,
+}
+`;
+
+exports[`SoupController matriz 7x2 palabra a buscar ["OIE"] POST /api/soup 1`] = `
+Object {
+  "OIE": 3,
+}
+`;

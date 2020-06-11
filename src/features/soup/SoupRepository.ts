@@ -85,7 +85,7 @@ export default class SoupRepository {
       for (let j = columnIndex; j < numberColumns && i < numberRows; j += 1) {
         phraseDiagonal += soup[i][j].toUpperCase();
         i += 1;
-        numberColumns = soup[i].length;
+        if (soup[i] !== undefined) numberColumns = soup[i].length;
       }
       break;
     }
@@ -121,7 +121,7 @@ export default class SoupRepository {
 
     if (column > 0) {
       let i = row;
-      for (let j = column; j >= 0; j -= 1) {
+      for (let j = column; j >= 0 && i < soup.length; j -= 1) {
         phrase += soup[i][j].toUpperCase();
         i += 1;
         if (soup[i] !== undefined && soup[i].length < j) break;
