@@ -1,10 +1,6 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-continue */
-/* eslint-disable no-console */
-/* eslint-disable class-methods-use-this */
 import soupDto from './validators/soupDto';
 import summaryDto from './validators/summaryDto';
-import { sum } from 'lodash';
 
 export default class SoupRepository {
   static Soup({ soup, searchWords }: soupDto): summaryDto {
