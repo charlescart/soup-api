@@ -16,7 +16,6 @@ npm i
 3. basado en el archivo `.env.example` ubicado en la raiz del proyecto generar un archivo `.env` y guardar igualmente en la raíz del proyecto.
 ```
 .env.example => .env
-
 ```
 4. ejecutar a traves de tu consola ubicado en la carpeta del proyecto el comando `npm start` para levantar el api y para confirmar que efectivamente el api fué levantada exitosamente dirigiendote a traves de tu navegador a `http://localhost:8086/api`:
 ```
