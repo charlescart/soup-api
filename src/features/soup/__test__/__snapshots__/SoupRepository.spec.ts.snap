@@ -79,6 +79,26 @@ Object {
 }
 `;
 
+exports[`SoupRepository LookAtTop 1`] = `
+Object {
+  "4": 0,
+  "AWD": 0,
+  "EEEIO": 2,
+  "EEIO": 1,
+  "EEXE": 1,
+  "EI": 1,
+  "EIO": 1,
+  "EX": 1,
+  "EXE": 1,
+  "II": 1,
+  "IO": 1,
+  "XE": 1,
+  "XI": 1,
+  "XII": 1,
+  "XXII": 1,
+}
+`;
+
 exports[`SoupRepository LookAtTopLeftDiagonal 1`] = `
 Object {
   "2": 0,
@@ -109,6 +129,25 @@ Object {
   "PALABRASUPERGRANDE": 0,
   "X4": 1,
   "XE": 1,
+}
+`;
+
+exports[`SoupRepository LookTopRightDiagonal 1`] = `
+Object {
+  "4": 0,
+  "5": 0,
+  "AWD": 0,
+  "E": 0,
+  "E4": 1,
+  "EIE": 1,
+  "EXE": 1,
+  "EXE4": 1,
+  "EXX": 1,
+  "IE": 1,
+  "II": 1,
+  "X": 0,
+  "XE4": 1,
+  "XX": 1,
 }
 `;
 

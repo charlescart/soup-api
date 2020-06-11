@@ -3,8 +3,8 @@
 exports[`SoupController Sopa de letras irregular y multiples palabras a buscar POST /api/soup 1`] = `
 Object {
   "AWDS": 0,
-  "E4": 1,
-  "EX": 6,
+  "E4": 2,
+  "EX": 9,
   "I": 3,
   "IX": 4,
   "IXE": 0,

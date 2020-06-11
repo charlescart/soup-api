@@ -4,6 +4,7 @@
 /* eslint-disable class-methods-use-this */
 import soupDto from './validators/soupDto';
 import summaryDto from './validators/summaryDto';
+import { sum } from 'lodash';
 
 export default class SoupRepository {
   static Soup({ soup, searchWords }: soupDto): summaryDto {
@@ -12,13 +13,32 @@ export default class SoupRepository {
     soup.forEach((row: string[], rowIndex: number) => {
       const numberColumns: number = row.length - 1;
       row.forEach((letter: string, columnIndex: number) => {
+        // verificar de solo a una letra
         this.LookUpOneLetterWords(letter.toUpperCase(), summary);
+
+        // mirando hacia la derecha
         this.LookToTheRight(columnIndex, numberColumns, summary, row);
+
+        // mirando hacia la diagonal inferior derecha
         this.LookAtDiagonal(rowIndex, columnIndex, summary, soup);
+
+        // mirando hacia abajo
         this.LookAtDown(soup, rowIndex, columnIndex, summary);
+
+        // diagonal inferior izquierda
         this.LookAtDiagonalLeft(rowIndex, columnIndex, summary, soup);
+
+        // mirando hacia la derecha
         this.LookAtLeft(soup, rowIndex, columnIndex, summary);
+
+        // mirando hacia la diagonal superior izquierda
         this.LookAtTopLeftDiagonal(soup, rowIndex, columnIndex, summary);
+
+        // mirando hacia arriba
+        this.LookAtTop(soup, rowIndex, columnIndex, summary);
+
+        // mirando hacia la diagonal superior derecha
+        this.LookTopRightDiagonal(soup, rowIndex, columnIndex, summary);
       });
     });
 
@@ -139,6 +159,34 @@ export default class SoupRepository {
       phrase = phrase.trim();
     }
 
+    if (phrase.length > 1) this.SearchPhraseMatch(phrase, summary);
+    return summary;
+  }
+
+  static LookAtTop(soup: string[][], row: number, column: number, summary: summaryDto): summaryDto {
+    let phrase = '';
+
+    for (let i = row; i >= 0 && row > 0; i -= 1) {
+      if ((soup[i].length - 1) < column) break;
+      phrase += soup[i][column].toUpperCase();
+    }
+
+    phrase = phrase.trim();
+    if (phrase.length > 1) this.SearchPhraseMatch(phrase, summary);
+    return summary;
+  }
+
+  static LookTopRightDiagonal(soup: string[][], row: number, column: number, summary: summaryDto): summaryDto {
+    let phrase = '';
+
+    let j = column;
+    for (let i = row; i >= 0 && row > 0; i -= 1) {
+      phrase += soup[i][j].toUpperCase();
+      j += 1;
+      if (soup[i - 1] !== undefined && (soup[i - 1].length - 1) < j) break;
+    }
+
+    phrase = phrase.trim();
     if (phrase.length > 1) this.SearchPhraseMatch(phrase, summary);
     return summary;
   }

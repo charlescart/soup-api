@@ -169,4 +169,46 @@ describe('SoupRepository', () => {
 
     expect(summary).toMatchSnapshot();
   });
+
+  it('LookAtTop', () => {
+    const words: string[] = ["awd", "io", "ii", "XE", "4", "EI", "EIO", "xi", "xII", "EXE", "EX", "EEIO", "EEEio", "XXII", "EEXE"];
+    let summary: Summary = SoupRepository.CreateSummary(words);
+    const soup: string[][] = [
+      ["o", "I", "E"],
+      ["I", "i", "X", "4"],
+      ["E", "X", "E"],
+      ["E", "X", "E", "5"],
+      ["E"],
+      [" "]
+    ];
+
+    soup.forEach((row: string[], rowIndex: number) => {
+      row.forEach((letter: string, columnIndex: number) => {
+        SoupRepository.LookAtTop(soup, rowIndex, columnIndex, summary);
+      });
+    });
+
+    expect(summary).toMatchSnapshot();
+  });
+
+  it('LookTopRightDiagonal', () => {
+    const words: string[] = ["awd", "II", "IE", "x", "4", "EIE", "XX", "E4", "EXX", "XE4", "EXE4", "e", "5", "", "exe"];
+    let summary: Summary = SoupRepository.CreateSummary(words);
+    const soup: string[][] = [
+      ["o", "I", "E"],
+      ["I", "i", "X", "4"],
+      ["E", "X", "E"],
+      ["E", "X", "E", "5"],
+      ["E"],
+      [" "]
+    ];
+
+    soup.forEach((row: string[], rowIndex: number) => {
+      row.forEach((letter: string, columnIndex: number) => {
+        SoupRepository.LookTopRightDiagonal(soup, rowIndex, columnIndex, summary);
+      });
+    });
+
+    expect(summary).toMatchSnapshot();
+  });
 });
