@@ -31,7 +31,7 @@ npm start
 ***coleccion de Postman del Api***
 <br> [Documentación Detallada](https://documenter.getpostman.com/view/11620246/Szzg8yR1)
 >
-***Ejemplo #1:*** Matriz irregular, palabras a buscar: OIE, E4, 5e, hoL y 1
+***Ejemplo #1:*** Matriz irregular, palabras a buscar: **OIE, E4, 5e, hoL y 1**
 <br> Metodo ***POST***
 ```
 localhost:8086/api/soup
@@ -60,4 +60,77 @@ Respuesta:
   "HOL": 0
 }
 ```
+
+>
+***Ejemplo #2:*** Matriz cuadrada, palabra a buscar: **OIE**
+<br> Metodo ***POST***
+```
+localhost:8086/api/soup
+```
+HEADERS     application/json
+<br>BODY raw
+```
+{
+    "soup": [
+        ["O", "I", "E"],
+        ["I", "I", "X"],
+        ["E", "X", "E"],
+    ],
+    "searchWords": ["OIE"]
+}
+```
+Respuesta:
+```
+{
+  "OIE": 3
+}
+```
 > # Ejecución de test unitarios
+1. ejecutar los test unitarios desarrollados con Jest, a traves de tu consola ejecuta:
+```
+npm t
+```
+salida:
+```
+ PASS  src/features/soup/__test__/SoupRepository.spec.ts
+ PASS  src/features/home/__test__/HomeController.spec.ts
+ PASS  src/features/soup/__test__/SoupController.spec.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       18 passed, 18 total
+Snapshots:   17 passed, 17 total
+Time:        4.362 s
+Ran all test suites.
+```
+2. ejecutar ***coverage*** con Jest:
+```
+npm run test:coverage
+```
+salida:
+```
+ PASS  src/features/soup/__test__/SoupRepository.spec.ts
+ PASS  src/features/home/__test__/HomeController.spec.ts
+ PASS  src/features/soup/__test__/SoupController.spec.ts
+------------------------------|---------|----------|---------|---------|-------------------
+File                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------------|---------|----------|---------|---------|-------------------
+All files                     |     100 |      100 |     100 |     100 |                   
+ src                          |     100 |      100 |     100 |     100 |                   
+  server.ts                   |     100 |      100 |     100 |     100 |                   
+ src/features/home            |     100 |      100 |     100 |     100 |                   
+  HomeController.ts           |     100 |      100 |     100 |     100 |                   
+ src/features/soup            |     100 |      100 |     100 |     100 |                   
+  SoupController.ts           |     100 |      100 |     100 |     100 |                   
+  SoupRepository.ts           |     100 |      100 |     100 |     100 |                   
+ src/features/soup/validators |     100 |      100 |     100 |     100 |                   
+  soupDto.ts                  |     100 |      100 |     100 |     100 |                   
+------------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       18 passed, 18 total
+Snapshots:   17 passed, 17 total
+Time:        4.797 s, estimated 5 s
+Ran all test suites.
+
+```
+Nota: una vez generado el coverage con Jest podrá ir a la raiz del proyecto y dirigirse a:  `/coverage/lcov-report/index.html` y abrir el ***index.html*** con su navegador, así podrá tener una mejor detalle del coverage generado por Jest. 
